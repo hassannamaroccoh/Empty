@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="echo.py" method="post">
+        <select id="list" name="City">
+            <option value="Rome" selected>Rome</option>
+            <option value="London" selected>London</option>
+            <option value="New York" selected>New York</option>
+        </select>
+        <input type="submit">
+    </form>
+    <p id="info"></p>
+    <script>
+        (function(){
+            const list = document.getElementById('list')
+            list.addEventListener('change' ,
+                                function () {reacTo(list, event)})
+               addEventListener('load',
+                            function () {reacTo(list , event)} )                                                                                     
+        })
+        ()
+        function reacTo(list , event){
+            const info = document.getElementById('info')
+            let index = list.options.selectedindex
+            let City = list.options[index].value
+            info.innerHTML = event.type +'<br>Select:'
+            info.innerHTML += City +'<br>Index:' + index
+        }
+    </script>
+    
+</body>
+</html>
